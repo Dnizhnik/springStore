@@ -1,0 +1,14 @@
+/*spring:
+  application:
+    name: account
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/accountDB
+    username: postgres
+    password: 12345
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    generate-ddl: on
+    hibernate:
+      ddl-auto: update
+    show-sql: ${DEBUG_SQL:true}
+    */
