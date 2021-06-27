@@ -4,12 +4,15 @@
     <title>Spring Security Example </title>
 </head>
 <body>
-Sign in
+<div>Sign in</div>
+<div>
 <form action="/login" method="post">
+    <input type="hidden" name="_csrf" value="_csrf.token">
     <div><label> User Name : <input type="text" name="username"/> </label></div>
     <div><label> Password: <input type="password" name="password"/> </label></div>
     <div><input type="submit" value="Sign In"/></div>
-</form>
-<a href="registration.html">Add new customer</a>
+</form></div>
+<div><a href="/registration">Add new customer</a></div>
+
 </body>
 </html>

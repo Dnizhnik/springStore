@@ -1,14 +1,12 @@
 package com.example.account.domain;
-
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-
 import javax.persistence.*;
+import java.util.Set;
+
+
 
 @Entity
-@Table
-@ToString(of = {"id", "email", "fio", "log", "password", "phone"})
-@EqualsAndHashCode(of = {"id"})
+@Table(name = "account")
+
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,4 +1,4 @@
-/*spring:
+spring:
   application:
     name: account
   datasource:
@@ -11,4 +11,3 @@
     hibernate:
       ddl-auto: update
     show-sql: ${DEBUG_SQL:true}
-    */

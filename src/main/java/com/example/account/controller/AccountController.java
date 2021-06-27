@@ -4,31 +4,47 @@ import com.example.account.domain.User;
 import com.example.account.repo.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
-@RestController
-@RequestMapping("registration")
+@Controller
+
 public class AccountController {
-    public final UserRepository userRepository;
-
     @Autowired
-    public AccountController(UserRepository userRepository){
+    private UserRepository userRepository;
+
+    @GetMapping("/registration")
+    public String greeting (Map<String, Object> model) {
+        return "greeting";
+    }
+
+   /* @GetMapping(path = "/main")
+    public String main (Map<String, Object> model) {
+        Iterable<User> getAllUsers() {
+            return userRepository.findAll();
+        }
+        return "main";
+    }*/
+
+    @PostMapping(path = "/main")
+    public String add(@RequestParam String email, String fio, String log, String password, long phone) {
+        User n = new User();
+        n.setEmail(email);
+        n.setFio(fio);
+        n.setLog(log);
+        n.setPassword(password);
+        n.setPhone(phone);
+        userRepository.save(n);
+        return "User";
+    }
+    /*public AccountController(UserRepository userRepository){
         this.userRepository = userRepository;
     }
-    @GetMapping
-    public List<User> list () {
-        return userRepository.findAll();
-    }
-    @GetMapping("{id}")
-    public User getUser(@PathVariable("id") User login) {
-        return login;
-    }
-    @PostMapping
-    public @ResponseBody String addNewUser(@RequestParam User login) {
-        return userRepository.save(login);
-    }
+   */
+
     @PutMapping("{id}")
     public User update(
             @PathVariable("id") User userFromDb,
